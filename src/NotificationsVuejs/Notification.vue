@@ -27,6 +27,7 @@ export default {
     },
     remove: function() {
       let notificationContainer = this.getContainer();
+      this.$notification.remove(this);
       notificationContainer.removeChild(this.$el);
       this.$destroy();
     }
@@ -52,8 +53,15 @@ export default {
     background-color: white;
     border: 1px solid lightgray;
     margin: 16px;
-    padding: 4px;
+    padding: 16px;
     border-radius: 4px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    p {
+      margin: 0;
+    }
   }
 }
 </style>
