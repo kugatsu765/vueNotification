@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <button @click="notif()">notification throw</button>
+    <button @click="remove()">remove</button>
   </div>
 </template>
 
@@ -7,6 +9,13 @@
 export default {
   name: "app",
   components: {},
+  methods: {
+    notif: function() {
+      this.$notification.new();
+    },
+    remove: function() {
+      this.$notification.removeAll();
+    }
   }
 };
 </script>
