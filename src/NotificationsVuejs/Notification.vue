@@ -27,6 +27,10 @@ export default {
     timeout: {
       type: Object,
       default: null
+    },
+    infiniteTimer: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -46,6 +50,13 @@ export default {
       this.$notification.remove(this);
       notificationContainer.removeChild(this.$el);
       this.$destroy();
+    },
+    handleTimeout: function() {
+      if (!this.infiniteTimer) {
+        this.timeout = setTimeout(() => {
+          this.remove();
+        }, this.timer * 1000);
+      }
     }
   },
   beforeMount() {
@@ -54,9 +65,7 @@ export default {
     notificationContainer.appendChild(this.$el);
   },
   mounted() {
-    this.timeout = setTimeout(() => {
-      this.remove();
-    }, this.timer * 1000);
+    this.handleTimeout();
   },
   destroyed() {
     log("🔥");
