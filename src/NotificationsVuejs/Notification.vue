@@ -1,7 +1,7 @@
 <template>
   <div class="notification">
     <div>
-      <p>🎉 Tada</p>
+      <p>🎉 {{message}}</p>
     </div>
     <div>
       <button @click="remove()">do</button>
@@ -14,6 +14,12 @@ import { log } from "util";
 
 export default {
   name: "Notification",
+  props: {
+    message: {
+      type: String,
+      default: "default"
+    }
+  },
   methods: {
     getContainer: function() {
       // Create the container if they don't exist or return it
@@ -33,6 +39,7 @@ export default {
     }
   },
   beforeMount() {
+    log("🚀");
     let notificationContainer = this.getContainer();
     notificationContainer.appendChild(this.$el);
   },

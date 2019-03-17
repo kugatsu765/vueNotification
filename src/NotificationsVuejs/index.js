@@ -4,11 +4,14 @@ const NotificationCenter = {
   install: function(Vue, options = {}) {
     console.log("Notification center registred");
 
-    function createNotification() {
+    function createNotification(message) {
       var ComponentClass = Vue.extend(Notif);
       let newComponent = new ComponentClass({
         el: document.createElement("div"),
-        propsData: { type: "primary" }
+        propsData: {
+          type: "primary",
+          message: message
+        }
       });
       notifications.push(newComponent);
     }
@@ -26,8 +29,8 @@ const NotificationCenter = {
     // Expose utilities
     let notifications = [];
     Vue.prototype.$notification = {
-      new: function() {
-        return createNotification();
+      new: function(message) {
+        return createNotification(message);
       },
       remove: function(comp) {
         return removeNotification(comp);

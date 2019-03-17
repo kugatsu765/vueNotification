@@ -11,7 +11,7 @@ export default {
   components: {},
   methods: {
     notif: function() {
-      this.$notification.new();
+      this.$notification.new("hello");
     },
     remove: function() {
       this.$notification.removeAll();
