@@ -1,34 +1,9 @@
-# notificationcentervue
+# 🚧 Notification Vue JS 🚧
 
-## Project setup
-```
-npm install
-```
+The **Notification vue** plugin allow you to display notifications from all your app. Just with one ligne of code.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Todo's
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [ ] Add delay
+- [ ] Add multiple type
+- [ ] Custum icon
