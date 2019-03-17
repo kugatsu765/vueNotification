@@ -1,6 +1,15 @@
 <template>
   <div id="app">
-    <button @click="notif()">notification throw</button>
+    <button @click="notif('new')">notification</button>
+    <br>
+    <button @click="notif('success')">notification success</button>
+    <br>
+    <button @click="notif('error')">notification error</button>
+    <br>
+    <button @click="notif('warning')">notification warning</button>
+    <br>
+    <button @click="notif('info')">notification info</button>
+    <br>
     <button @click="remove()">remove</button>
   </div>
 </template>
@@ -15,9 +24,11 @@ export default {
   },
   components: {},
   methods: {
-    notif: function() {
+    notif: function(type) {
       this.count++;
-      this.$notification.new({
+      console.log(this.$notification[type]);
+
+      this.$notification[type]({
         message: "Sample of notification throw with number " + this.count
       });
     },
@@ -31,10 +42,5 @@ export default {
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

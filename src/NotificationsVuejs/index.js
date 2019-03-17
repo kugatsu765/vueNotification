@@ -30,6 +30,23 @@ const NotificationCenter = {
     let notifications = [];
     Vue.prototype.$notification = {
       new: function(lConf) {
+        lConf.type = "primary";
+        return createNotification(lConf);
+      },
+      success: function(lConf) {
+        lConf.type = "success";
+        return createNotification(lConf);
+      },
+      error: function(lConf) {
+        lConf.type = "error";
+        return createNotification(lConf);
+      },
+      warning: function(lConf) {
+        lConf.type = "warning";
+        return createNotification(lConf);
+      },
+      info: function(lConf) {
+        lConf.type = "info";
         return createNotification(lConf);
       },
       remove: function(comp) {

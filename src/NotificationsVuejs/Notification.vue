@@ -1,5 +1,5 @@
 <template>
-  <div class="notification">
+  <div class="notification" :style="{backgroundColor: backgroundColor, color: textColor}">
     <div class="icn-left">
       <img src="./assets/notification.svg" alt="check" width="20px">
     </div>
@@ -38,6 +38,55 @@ export default {
     position: {
       type: String,
       default: "topRight"
+    },
+    type: {
+      type: String,
+      default: "primary"
+    },
+    primary: {
+      type: Object,
+      default: function() {
+        return {
+          background: "#fff",
+          color: "#000"
+        };
+      }
+    },
+    success: {
+      type: Object,
+      default: function() {
+        return {
+          background: "#B2DFDB",
+          color: "#000"
+        };
+      }
+    },
+    error: {
+      type: Object,
+      default: function() {
+        return {
+          background: "#FFCDD2",
+          color: "#000"
+        };
+      }
+    },
+    warning: {
+      type: Object,
+      default: function() {
+        return {
+          background: "#FFE0B2",
+          color: "#000"
+        };
+      }
+    },
+    info: {
+      type: Object,
+      default: function() {
+        return {
+          background: "#B3E5FC",
+          color: "#000"
+        };
+      }
     }
   },
   methods: {
@@ -64,11 +113,16 @@ export default {
           this.remove();
         }, this.timer * 1000);
       }
+    },
+    initColors: function() {
+      this.backgroundColor = this[this.type].background;
+      this.textColor = this[this.type].color;
     }
   },
   beforeMount() {
     log("🚀");
     let notificationContainer = this.getContainer();
+    this.initColors();
     notificationContainer.appendChild(this.$el);
     notificationContainer.classList.add(this.position);
   },
@@ -125,10 +179,10 @@ export default {
   }
 
   &.bottomCenter {
-    top: initial;
     left: 50%;
-    right: initial;
     bottom: 0;
+    top: initial;
+    right: initial;
     transform: translate3d(-50%, 0, 0);
   }
 
