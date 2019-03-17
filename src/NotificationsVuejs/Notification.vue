@@ -11,13 +11,22 @@
 
 <script>
 import { log } from "util";
+import { timeout } from "q";
 
 export default {
   name: "Notification",
   props: {
     message: {
       type: String,
-      default: "default"
+      default: "🚧 You miss something ..."
+    },
+    timer: {
+      type: Number,
+      default: 5
+    },
+    timeout: {
+      type: Object,
+      default: null
     }
   },
   methods: {
@@ -33,6 +42,7 @@ export default {
     },
     remove: function() {
       let notificationContainer = this.getContainer();
+      window.clearTimeout(this.timeout);
       this.$notification.remove(this);
       notificationContainer.removeChild(this.$el);
       this.$destroy();
@@ -42,6 +52,11 @@ export default {
     log("🚀");
     let notificationContainer = this.getContainer();
     notificationContainer.appendChild(this.$el);
+  },
+  mounted() {
+    this.timeout = setTimeout(() => {
+      this.remove();
+    }, this.timer * 1000);
   },
   destroyed() {
     log("🔥");
