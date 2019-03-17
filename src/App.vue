@@ -8,10 +8,18 @@
 <script>
 export default {
   name: "app",
+  data: function() {
+    return {
+      count: 0
+    };
+  },
   components: {},
   methods: {
     notif: function() {
-      this.$notification.new({ message: "hello world" });
+      this.count++;
+      this.$notification.new({
+        message: "Sample of notification throw with number " + this.count
+      });
     },
     remove: function() {
       this.$notification.removeAll();

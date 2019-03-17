@@ -1,10 +1,13 @@
 <template>
   <div class="notification">
-    <div>
-      <p>🎉 {{message}}</p>
+    <div class="icn-left">
+      <img src="./assets/notification.svg" alt="check" width="20px">
     </div>
     <div>
-      <button @click="remove()">do</button>
+      <p>{{message}}</p>
+    </div>
+    <div class="icn-right" @click="remove()">
+      <img src="./assets/error.svg" alt="check" width="20px">
     </div>
   </div>
 </template>
@@ -88,10 +91,18 @@ export default {
     border-radius: 4px;
 
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     p {
       margin: 0;
+    }
+
+    .icn-left {
+      margin-right: 16px;
+    }
+
+    .icn-right {
+      margin-left: 8px;
     }
   }
 }
