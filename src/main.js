@@ -4,7 +4,8 @@ import NotificationVuejs from "./NotificationsVuejs";
 
 Vue.config.productionTip = false;
 Vue.use(NotificationVuejs, {
-  timer: 10
+  timer: 20,
+  position: "topRight"
 });
 
 new Vue({

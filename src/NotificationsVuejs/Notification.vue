@@ -34,6 +34,10 @@ export default {
     infiniteTimer: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: "topRight"
     }
   },
   methods: {
@@ -66,6 +70,7 @@ export default {
     log("🚀");
     let notificationContainer = this.getContainer();
     notificationContainer.appendChild(this.$el);
+    notificationContainer.classList.add(this.position);
   },
   mounted() {
     this.handleTimeout();
@@ -79,9 +84,53 @@ export default {
 <style lang="scss">
 .notificationCenter {
   position: absolute;
+  width: 400px;
   top: 0;
   right: 0;
-  width: 400px;
+
+  &.topLeft {
+    top: 0;
+    left: 0;
+    bottom: initial;
+    right: initial;
+  }
+
+  &.topRight {
+    top: 0;
+    right: 0;
+    bottom: initial;
+    left: initial;
+  }
+
+  &.bottomLeft {
+    bottom: 0;
+    left: 0;
+    top: initial;
+    right: initial;
+  }
+
+  &.bottomRight {
+    bottom: 0;
+    right: 0;
+    top: initial;
+    left: initial;
+  }
+
+  &.topCenter {
+    top: 0;
+    left: 50%;
+    right: initial;
+    bottom: initial;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  &.bottomCenter {
+    top: initial;
+    left: 50%;
+    right: initial;
+    bottom: 0;
+    transform: translate3d(-50%, 0, 0);
+  }
 
   .notification {
     background-color: white;
@@ -103,6 +152,7 @@ export default {
 
     .icn-right {
       margin-left: 8px;
+      cursor: pointer;
     }
   }
 }

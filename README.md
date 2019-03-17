@@ -29,11 +29,23 @@ this.$notification.new({ message: "hello world", timer: 10 });
 
 ## Parameters
 
-| Name          | Type   |               Default value |
-| ------------- | ------ | --------------------------: |
-| message       | String | "🚧 You miss something ..." |
-| timer         | Number |                        5(s) |
-| infiniteTimer | Number |                       false |
+| Name          | Type    |               Default value |
+| ------------- | ------- | --------------------------: |
+| message       | String  | "🚧 You miss something ..." |
+| timer         | Number  |                        5(s) |
+| infiniteTimer | Boolean |                       false |
+| position      | String  |                    topRight |
+
+### position
+
+| Name          | Value        |
+| ------------- | ------------ |
+| top center    | topRight     |
+| top left      | topLeft      |
+| top right     | topRight     |
+| bottom center | bottomCenter |
+| bottom left   | bottomLeft   |
+| bottom right  | bottomRight  |
 
 ## Credit
 
