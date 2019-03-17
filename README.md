@@ -37,6 +37,8 @@ this.$notification.new({ message: "hello world", timer: 10 });
 | position      | String  |                    topRight |
 | type          | String  |                     primary |
 | [type]        | Object  |        ( See type section ) |
+| showLeftIcn   | Boolean |                        true |
+| showCloseIcn  | Boolean |                        true |
 
 #### position
 

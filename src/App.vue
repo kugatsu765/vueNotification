@@ -10,7 +10,7 @@
     <br>
     <button @click="notif('info')">notification info</button>
     <br>
-    <button @click="remove()">remove</button>
+    <button @click="remove()">remove all</button>
   </div>
 </template>
 
@@ -26,8 +26,6 @@ export default {
   methods: {
     notif: function(type) {
       this.count++;
-      console.log(this.$notification[type]);
-
       this.$notification[type]({
         message: "Sample of notification throw with number " + this.count
       });

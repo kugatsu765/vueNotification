@@ -1,13 +1,13 @@
 <template>
   <div class="notification" :style="{backgroundColor: backgroundColor, color: textColor}">
-    <div class="icn-left">
-      <img src="./assets/notification.svg" alt="check" width="20px">
+    <div :class="{'icn-left': showLeftIcn}">
+      <img v-if="showLeftIcn" src="./assets/notification.svg" alt="check" width="20px">
     </div>
     <div>
       <p>{{message}}</p>
     </div>
-    <div class="icn-right" @click="remove()">
-      <img src="./assets/error.svg" alt="check" width="20px">
+    <div :class="{'icn-right': showCloseIcn}" @click="remove()">
+      <img v-if="showCloseIcn" src="./assets/error.svg" alt="check" width="20px">
     </div>
   </div>
 </template>
@@ -38,6 +38,14 @@ export default {
     position: {
       type: String,
       default: "topRight"
+    },
+    showLeftIcn: {
+      type: Boolean,
+      default: true
+    },
+    showCloseIcn: {
+      type: Boolean,
+      default: true
     },
     type: {
       type: String,
