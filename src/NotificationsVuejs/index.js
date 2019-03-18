@@ -2,8 +2,6 @@ import Notif from "./Notification.vue";
 
 const NotificationCenter = {
   install: function(Vue, options = {}) {
-    console.log("Notification center registred");
-
     function createNotification(lConf) {
       var ComponentClass = Vue.extend(Notif);
       let newComponent = new ComponentClass({

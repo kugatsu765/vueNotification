@@ -13,9 +13,6 @@
 </template>
 
 <script>
-import { log } from "util";
-import { timeout } from "q";
-
 export default {
   name: "Notification",
   props: {
@@ -128,7 +125,6 @@ export default {
     }
   },
   beforeMount() {
-    log("🚀");
     let notificationContainer = this.getContainer();
     this.initColors();
     notificationContainer.appendChild(this.$el);
@@ -136,9 +132,6 @@ export default {
   },
   mounted() {
     this.handleTimeout();
-  },
-  destroyed() {
-    log("🔥");
   }
 };
 </script>
