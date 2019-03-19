@@ -15,7 +15,6 @@ const NotificationCenter = {
     }
 
     function removeNotification(component) {
-      let index = notifications.indexOf(component);
       notifications = notifications.filter(c => c !== component);
     }
 
