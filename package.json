@@ -10,6 +10,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "gsap": "^2.1.2",
     "vue": "^2.6.6",
     "vuetify": "^1.5.5"
   },
