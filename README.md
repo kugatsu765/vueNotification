@@ -1,4 +1,5 @@
 # Notification Vue JS 🚀
+🚧 Development in progress
 
 The **Notification vue** plugin allow you to display notifications from all your app. Just with one ligne of code.
 
