@@ -204,6 +204,7 @@ export default {
   width: 400px;
   top: 0;
   right: 0;
+  z-index: 50;
 
   &.topLeft {
     top: 0;
