@@ -1,6 +1,6 @@
 {
   "name": "@kugatsu/vuenotification",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vuejs plugin for handle notification toastr.",
   "license": "MIT",
   "repository": "https://github.com/kugatsu765/vueNotification",
