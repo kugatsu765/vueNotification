@@ -98,10 +98,12 @@ export default {
       let config = this.getConfig;
       this.buttonClicked = true;
 
-      this.$notification[type]({
-        message: "Sample of notification throw with number " + this.count,
-        ...config
-      });
+      this.$notification[type](
+        "Sample of notification throw with number " + this.count,
+        {
+          ...config
+        }
+      );
     },
     remove: function() {
       this.$notification.removeAll();
