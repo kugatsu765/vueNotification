@@ -23,8 +23,8 @@ Vue.use(VueNotification, {
 Throw notification where you want.
 
 ```javascript
-this.$notification.new({ message: "hello world", timer: 10 });
-this.$notification.error({ message: "hello world", timer: 10 });
+this.$notification.new("hello world", {  timer: 10 });
+this.$notification.error("hello world", { infiniteTimer: false });
 ...
 ```
 
