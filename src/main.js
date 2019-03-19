@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-import NotificationVuejs from "./NotificationsVuejs";
+import NotificationVuejs from "./VueNotification/index";
 
 Vue.config.productionTip = false;
 Vue.use(NotificationVuejs, {
