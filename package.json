@@ -1,7 +1,7 @@
 {
   "name": "@kugatsu/vueNotification",
   "version": "1.0.0",
-  "description": "Removes all spaces from a string",
+  "description": "Vuejs plugin for handle notification toastr.",
   "license": "MIT",
   "repository": "https://github.com/kugatsu765/vueNotification",
   "private": false,
