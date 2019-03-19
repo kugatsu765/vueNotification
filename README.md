@@ -39,7 +39,7 @@ this.$notification.error({ message: "hello world", timer: 10 });
 | type          | String  |                     primary |
 | [type]        | Object  |        ( See type section ) |
 | showLeftIcn   | Boolean |                        true |
-| showCloseIcn  | Boolean |                        true |
+| showCloseIcn  | Boolean |                       false |
 
 #### position
 
