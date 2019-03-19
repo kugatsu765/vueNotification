@@ -1,5 +1,9 @@
 <template>
-  <div class="notification" :style="{backgroundColor: backgroundColor, color: textColor}">
+  <div
+    class="notification"
+    :class="'notif'+ uuid"
+    :style="{backgroundColor: backgroundColor, color: textColor}"
+  >
     <div :class="{'icn-left': showLeftIcn}">
       <svg
         v-if="showLeftIcn"
@@ -77,6 +81,7 @@
 <script>
 import { TimlineMax } from "gsap";
 
+let uuid = 0;
 export default {
   name: "Notification",
   props: {
@@ -176,20 +181,20 @@ export default {
         onComplete: () => {
           window.clearTimeout(this.timeout);
           this.$notification.remove(this);
+          console.log(this);
           notificationContainer.removeChild(this.$el);
           this.$destroy();
         }
       })
-        .to(".notification>div", 0.3, {
+        .to(`.notif${this.uuid}>div`, 0.3, {
           opacity: 0
         })
-        .to(".notification", 0.3, {
+        .to(`.notif${this.uuid}`, 0.3, {
           borderRadius: 100,
           width: 30,
           height: 30
         })
-        .to(".notification", 0.7, {
-          y: -100,
+        .to(`.notif${this.uuid}`, 0.7, {
           opacity: 0
         });
     },
@@ -206,22 +211,25 @@ export default {
     },
     animate: function() {
       var tl = new TimelineMax()
-        .from(".notification", 0.3, {
-          y: -200,
+        .from(`.notif${this.uuid}`, 0.6, {
           opacity: 0
         })
-        .from(".notification", 0.3, {
+        .from(`.notif${this.uuid}`, 0.4, {
           borderRadius: 100,
           width: 30,
           height: 30
         })
-        .from(".notification>div", 0.3, {
+        .from(`.notif${this.uuid}>div`, 0.3, {
           opacity: 0
         });
 
       tl.pause();
       return tl;
     }
+  },
+  beforeCreate() {
+    this.uuid = uuid.toString();
+    uuid += 1;
   },
   beforeMount() {
     let notificationContainer = this.getContainer();
@@ -292,7 +300,7 @@ export default {
   .notification {
     background-color: white;
     border: 1px solid lightgray;
-    margin: 16px;
+    margin: 16px auto;
     padding: 16px;
     border-radius: 4px;
     overflow: hidden;
