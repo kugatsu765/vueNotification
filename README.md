@@ -6,18 +6,18 @@ The **Notification vue** plugin allow you to display notifications from all your
 
 Install with pm
 
-```
-🚧 npm .....
+```console
+npm i @kugatsu/vuenotification --save
 ```
 
 Import with ES6
 
 ```javascript
 🚧
-import NotificationVuejs from "NotificationsVuejs";
+import VueNotification from "@kugatsu/vuenotification";
 
-Vue.use(NotificationVuejs, {
-  timer: 1
+Vue.use(VueNotification, {
+  timer: 20
 });
 ```
 
@@ -25,6 +25,8 @@ Throw notification where you want.
 
 ```javascript
 this.$notification.new({ message: "hello world", timer: 10 });
+this.$notification.error({ message: "hello world", timer: 10 });
+...
 ```
 
 ## Parameters
