@@ -1,5 +1,5 @@
 {
-  "name": "@kugatsu/vueNotification",
+  "name": "@kugatsu/vuenotification",
   "version": "1.0.0",
   "description": "Vuejs plugin for handle notification toastr.",
   "license": "MIT",
