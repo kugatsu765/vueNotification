@@ -1,4 +1,4 @@
-# 🚧 Notification Vue JS 🚧
+# Notification Vue JS 🚀
 
 The **Notification vue** plugin allow you to display notifications from all your app. Just with one ligne of code.
 
@@ -13,7 +13,6 @@ npm i @kugatsu/vuenotification --save
 Import with ES6
 
 ```javascript
-🚧
 import VueNotification from "@kugatsu/vuenotification";
 
 Vue.use(VueNotification, {
