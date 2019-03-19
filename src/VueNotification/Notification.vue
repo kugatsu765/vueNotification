@@ -75,6 +75,8 @@
 </template>
 
 <script>
+import { TimlineMax } from "gsap";
+
 export default {
   name: "Notification",
   props: {
@@ -169,10 +171,27 @@ export default {
     },
     remove: function() {
       let notificationContainer = this.getContainer();
-      window.clearTimeout(this.timeout);
-      this.$notification.remove(this);
-      notificationContainer.removeChild(this.$el);
-      this.$destroy();
+
+      var tl = new TimelineMax({
+        onComplete: () => {
+          window.clearTimeout(this.timeout);
+          this.$notification.remove(this);
+          notificationContainer.removeChild(this.$el);
+          this.$destroy();
+        }
+      })
+        .to(".notification>div", 0.3, {
+          opacity: 0
+        })
+        .to(".notification", 0.3, {
+          borderRadius: 100,
+          width: 30,
+          height: 30
+        })
+        .to(".notification", 0.7, {
+          y: -100,
+          opacity: 0
+        });
     },
     handleTimeout: function() {
       if (!this.infiniteTimer) {
@@ -184,6 +203,24 @@ export default {
     initColors: function() {
       this.backgroundColor = this[this.type].background;
       this.textColor = this[this.type].color;
+    },
+    animate: function() {
+      var tl = new TimelineMax()
+        .from(".notification", 0.3, {
+          y: -200,
+          opacity: 0
+        })
+        .from(".notification", 0.3, {
+          borderRadius: 100,
+          width: 30,
+          height: 30
+        })
+        .from(".notification>div", 0.3, {
+          opacity: 0
+        });
+
+      tl.pause();
+      return tl;
     }
   },
   beforeMount() {
@@ -194,7 +231,9 @@ export default {
   },
   mounted() {
     this.handleTimeout();
-  }
+    this.animate().play(0);
+  },
+  beforeDestroy() {}
 };
 </script>
 
@@ -256,6 +295,7 @@ export default {
     margin: 16px;
     padding: 16px;
     border-radius: 4px;
+    overflow: hidden;
 
     display: grid;
     grid-template-columns: auto 1fr auto;
