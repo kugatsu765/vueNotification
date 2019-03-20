@@ -268,6 +268,7 @@ export default {
     right: initial;
     bottom: initial;
     transform: translate3d(-50%, 0, 0);
+    margin: auto;
   }
 
   &.bottomCenter {
@@ -276,6 +277,7 @@ export default {
     top: initial;
     right: initial;
     transform: translate3d(-50%, 0, 0);
+    margin: auto;
   }
 
   .notification {
