@@ -26,28 +26,28 @@ const NotificationCenter = {
     // Expose utilities
     let notifications = [];
     Vue.prototype.$notification = {
-      new: function(message, lConf) {
+      new: function(message, lConf = {}) {
         lConf.type = "primary";
         lConf.message = message;
         return createNotification(lConf);
       },
-      success: function(message, lConf) {
+      success: function(message, lConf = {}) {
         lConf.type = "success";
         lConf.message = message;
         return createNotification(lConf);
       },
-      error: function(message, lConf) {
+      error: function(message, lConf = {}) {
         lConf.type = "error";
         lConf.message = message;
         return createNotification(lConf);
       },
-      warning: function(message, lConf) {
+      warning: function(message, lConf = {}) {
         lConf.type = "warning";
         lConf.message = message;
         return createNotification(lConf);
       },
-      info: function(message, lConf) {
-        lConf.type = "info";
+      dark: function(message, lConf = {}) {
+        lConf.type = "dark";
         lConf.message = message;
         return createNotification(lConf);
       },

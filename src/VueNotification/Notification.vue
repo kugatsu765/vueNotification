@@ -4,76 +4,38 @@
     :class="'notif'+ uuid"
     :style="{backgroundColor: backgroundColor, color: textColor}"
   >
-    <div :class="{'icn-left': showLeftIcn}">
-      <svg
-        v-if="showLeftIcn"
-        width="20px"
-        heigth="20px"
-        x="0px"
-        y="0px"
-        viewBox="0 0 512 512"
-        style="enable-background:new 0 0 512 512;"
-        xml:space="preserve"
-      >
-        <g>
-          <g>
-            <path
-              d="M467.819,431.851l-36.651-61.056c-16.896-28.181-25.835-60.437-25.835-93.312V224
-			c0-82.325-67.008-149.333-149.333-149.333S106.667,141.675,106.667,224v53.483c0,32.875-8.939,65.131-25.835,93.312
-			l-36.651,61.056c-1.984,3.285-2.027,7.403-0.149,10.731c1.899,3.349,5.461,5.419,9.301,5.419h405.333
-			c3.84,0,7.403-2.069,9.301-5.419C469.845,439.253,469.803,435.136,467.819,431.851z M72.171,426.667l26.944-44.907
-			C118.016,350.272,128,314.219,128,277.483V224c0-70.592,57.408-128,128-128s128,57.408,128,128v53.483
-			c0,36.736,9.984,72.789,28.864,104.277l26.965,44.907H72.171z"
-            ></path>
-          </g>
-        </g>
-        <g>
-          <g>
-            <path
-              d="M256,0c-23.531,0-42.667,19.136-42.667,42.667v42.667C213.333,91.221,218.112,96,224,96s10.667-4.779,10.667-10.667
-			V42.667c0-11.776,9.557-21.333,21.333-21.333s21.333,9.557,21.333,21.333v42.667C277.333,91.221,282.112,96,288,96
-			s10.667-4.779,10.667-10.667V42.667C298.667,19.136,279.531,0,256,0z"
-            ></path>
-          </g>
-        </g>
-        <g>
-          <g>
-            <path
-              d="M302.165,431.936c-3.008-5.077-9.515-6.741-14.613-3.819c-5.099,2.987-6.805,9.536-3.819,14.613
-			c2.773,4.715,4.288,10.368,4.288,15.936c0,17.643-14.357,32-32,32c-17.643,0-32-14.357-32-32c0-5.568,1.515-11.221,4.288-15.936
-			c2.965-5.099,1.259-11.627-3.819-14.613c-5.141-2.923-11.627-1.259-14.613,3.819c-4.715,8.064-7.211,17.301-7.211,26.731
-			C202.667,488.085,226.581,512,256,512s53.333-23.915,53.376-53.333C309.376,449.237,306.88,440,302.165,431.936z"
-            ></path>
-          </g>
-        </g>
-      </svg>
-    </div>
-    <div>
-      <p>{{message}}</p>
-    </div>
-    <div :class="{'icn-right': showCloseIcn}" @click="remove()">
-      <svg
-        width="20px"
-        v-if="showCloseIcn"
-        x="0px"
-        y="0px"
-        viewBox="0 0 52 52"
-        style="enable-background:new 0 0 52 52;"
-        xml:space="preserve"
-      >
-        <g>
+    <div class="container">
+      <div :class="{'icn-left': showLeftIcn}" :style="{fill: textColor}">
+        <svg
+          width="14"
+          height="20"
+          viewBox="0 0 14 20"
+          xmlns="http://www.w3.org/2000/svg"
+          v-if="showLeftIcn"
+        >
           <path
-            d="M26,0C11.664,0,0,11.663,0,26s11.664,26,26,26s26-11.663,26-26S40.336,0,26,0z M26,50C12.767,50,2,39.233,2,26
-		S12.767,2,26,2s24,10.767,24,24S39.233,50,26,50z"
+            d="M3.99346 19C3.99346 19.2652 4.09882 19.5196 4.28635 19.7071C4.47389 19.8946 4.72824 20 4.99346 20H8.99346C9.25868 20 9.51303 19.8946 9.70057 19.7071C9.8881 19.5196 9.99346 19.2652 9.99346 19V18H3.99346V19ZM6.99346 0C5.50444 0.00139123 4.05466 0.477563 2.85479 1.35932C1.65492 2.24108 0.767486 3.48248 0.321445 4.90312C-0.124597 6.32376 -0.106005 7.84963 0.374519 9.25898C0.855044 10.6683 1.77246 11.8877 2.99346 12.74V15C2.99346 15.2652 3.09882 15.5196 3.28635 15.7071C3.47389 15.8946 3.72824 16 3.99346 16H9.99346C10.2587 16 10.513 15.8946 10.7006 15.7071C10.8881 15.5196 10.9935 15.2652 10.9935 15V12.74C12.2145 11.8877 13.1319 10.6683 13.6124 9.25898C14.0929 7.84963 14.1115 6.32376 13.6655 4.90312C13.2194 3.48248 12.332 2.24108 11.1321 1.35932C9.93226 0.477563 8.48248 0.00139123 6.99346 0V0ZM9.84346 11.1L8.99346 11.7V14H4.99346V11.7L4.14346 11.1C3.26823 10.4928 2.60979 9.622 2.26409 8.61445C1.91839 7.60689 1.90351 6.51525 2.22161 5.49865C2.53971 4.48204 3.17417 3.59359 4.03252 2.96278C4.89087 2.33197 5.92824 1.99178 6.99346 1.99178C8.05867 1.99178 9.09605 2.33197 9.9544 2.96278C10.8128 3.59359 11.4472 4.48204 11.7653 5.49865C12.0834 6.51525 12.0685 7.60689 11.7228 8.61445C11.3771 9.622 10.7187 10.4928 9.84346 11.1V11.1Z"
           ></path>
+        </svg>
+      </div>
+
+      <div>
+        <p>{{message}}</p>
+      </div>
+
+      <div @click="remove()" :style="{fill: textColor}" class="closeButton">
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          xmlns="http://www.w3.org/2000/svg"
+          v-if="showCloseIcn"
+        >
           <path
-            d="M35.707,16.293c-0.391-0.391-1.023-0.391-1.414,0L26,24.586l-8.293-8.293c-0.391-0.391-1.023-0.391-1.414,0
-		s-0.391,1.023,0,1.414L24.586,26l-8.293,8.293c-0.391,0.391-0.391,1.023,0,1.414C16.488,35.902,16.744,36,17,36
-		s0.512-0.098,0.707-0.293L26,27.414l8.293,8.293C34.488,35.902,34.744,36,35,36s0.512-0.098,0.707-0.293
-		c0.391-0.391,0.391-1.023,0-1.414L27.414,26l8.293-8.293C36.098,17.316,36.098,16.684,35.707,16.293z"
+            d="M10 1.00714L8.99286 0L5 3.99286L1.00714 0L0 1.00714L3.99286 5L0 8.99286L1.00714 10L5 6.00714L8.99286 10L10 8.99286L6.00714 5L10 1.00714Z"
           ></path>
-        </g>
-      </svg>
+        </svg>
+      </div>
     </div>
   </div>
 </template>
@@ -84,6 +46,12 @@ import { TimlineMax } from "gsap";
 let uuid = 0;
 export default {
   name: "Notification",
+  data: function() {
+    return {
+      notificationEl: `.notif${this.uuid}`,
+      notificationElContent: `.notif${this.uuid}>div`
+    };
+  },
   props: {
     message: {
       type: String,
@@ -122,7 +90,8 @@ export default {
       default: function() {
         return {
           background: "#fff",
-          color: "#000"
+          color: "#5E6372",
+          titleColor: ""
         };
       }
     },
@@ -130,8 +99,8 @@ export default {
       type: Object,
       default: function() {
         return {
-          background: "#B2DFDB",
-          color: "#000"
+          background: "#609a22",
+          color: "#E4E4E4"
         };
       }
     },
@@ -139,8 +108,8 @@ export default {
       type: Object,
       default: function() {
         return {
-          background: "#FFCDD2",
-          color: "#000"
+          background: "#B00002",
+          color: "#E4E4E4"
         };
       }
     },
@@ -148,18 +117,57 @@ export default {
       type: Object,
       default: function() {
         return {
-          background: "#FFE0B2",
-          color: "#000"
+          background: "#FFDE03",
+          color: "#2F3C5F"
         };
       }
     },
-    info: {
+    dark: {
       type: Object,
       default: function() {
         return {
-          background: "#B3E5FC",
-          color: "#000"
+          background: "#2F3C5F",
+          color: "#E4E4E4"
         };
+      }
+    },
+    animateIn: {
+      type: Function,
+      default: function() {
+        var tl = new TimelineMax()
+          .from(`.notif${this.uuid}`, 0.6, {
+            opacity: 0
+          })
+          .from(this.notificationEl, 0.4, {
+            borderRadius: 100,
+            width: 30,
+            height: 30
+          })
+          .from(`.notif${this.uuid}>div`, 0.3, {
+            opacity: 0
+          });
+        tl.pause();
+        return tl;
+      }
+    },
+    animateOut: {
+      type: Function,
+      default: function() {
+        var tl = new TimelineMax({})
+          .to(`.notif${this.uuid}>div`, 0.4, {
+            opacity: 0,
+            ease: Power3.easeOut
+          })
+          .to(`.notif${this.uuid}`, 0.3, {
+            borderRadius: 100,
+            width: 30,
+            height: 30
+          })
+          .to(`.notif${this.uuid}`, 0.7, {
+            opacity: 0
+          });
+
+        return tl;
       }
     }
   },
@@ -181,22 +189,10 @@ export default {
         onComplete: () => {
           window.clearTimeout(this.timeout);
           this.$notification.remove(this);
-          console.log(this);
           notificationContainer.removeChild(this.$el);
           this.$destroy();
         }
-      })
-        .to(`.notif${this.uuid}>div`, 0.3, {
-          opacity: 0
-        })
-        .to(`.notif${this.uuid}`, 0.3, {
-          borderRadius: 100,
-          width: 30,
-          height: 30
-        })
-        .to(`.notif${this.uuid}`, 0.7, {
-          opacity: 0
-        });
+      }).add(this.animateOut().play(0));
     },
     handleTimeout: function() {
       if (!this.infiniteTimer) {
@@ -208,23 +204,6 @@ export default {
     initColors: function() {
       this.backgroundColor = this[this.type].background;
       this.textColor = this[this.type].color;
-    },
-    animate: function() {
-      var tl = new TimelineMax()
-        .from(`.notif${this.uuid}`, 0.6, {
-          opacity: 0
-        })
-        .from(`.notif${this.uuid}`, 0.4, {
-          borderRadius: 100,
-          width: 30,
-          height: 30
-        })
-        .from(`.notif${this.uuid}>div`, 0.3, {
-          opacity: 0
-        });
-
-      tl.pause();
-      return tl;
     }
   },
   beforeCreate() {
@@ -239,7 +218,7 @@ export default {
   },
   mounted() {
     this.handleTimeout();
-    this.animate().play(0);
+    this.animateIn().play(0);
   },
   beforeDestroy() {}
 };
@@ -248,10 +227,12 @@ export default {
 <style lang="scss">
 .notificationCenter {
   position: absolute;
-  width: 400px;
+  width: 300px;
+  max-width: 90vw;
   top: 0;
   right: 0;
   z-index: 50;
+  margin: 0 8px;
 
   &.topLeft {
     top: 0;
@@ -298,27 +279,32 @@ export default {
   }
 
   .notification {
-    background-color: white;
-    border: 1px solid lightgray;
-    margin: 16px auto;
-    padding: 16px;
-    border-radius: 4px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    margin: 8px auto;
+    border-radius: 5px;
 
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    p {
-      margin: 0;
-    }
+    .container {
+      position: relative;
+      padding: 16px 24px 16px 16px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
 
-    .icn-left {
-      margin-right: 16px;
-    }
+      p {
+        margin: 0;
+      }
 
-    .icn-right {
-      margin-left: 8px;
-      cursor: pointer;
+      .icn-left {
+        margin-right: 16px;
+      }
+
+      .closeButton {
+        cursor: pointer;
+        position: absolute;
+        right: 10px;
+        top: 8px;
+      }
     }
   }
 }

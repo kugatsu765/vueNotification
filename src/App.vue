@@ -36,15 +36,18 @@
                 label="Allow you to display a notification whitout timer"
               ></v-checkbox>
             </v-flex>
-            <v-flex xs12>showLeftIcn
+            <v-flex xs6>showLeftIcn
               <v-checkbox v-model="showLeftIcn" label="Allow you to display hide the left icone"></v-checkbox>
             </v-flex>
+            <v-flex xs6>showCloseIcn
+              <v-checkbox v-model="showCloseIcn" label="Allow you to display hide the close button"></v-checkbox>
+            </v-flex>
             <v-flex xs12>
-              <v-btn color="primary" @click="notif('new')">Primary</v-btn>
+              <v-btn color @click="notif('new')">Primary</v-btn>
+              <v-btn color="black" style="color: white" @click="notif('dark')">dark</v-btn>
               <v-btn color="success" @click="notif('success')">success</v-btn>
               <v-btn color="error" @click="notif('error')">error</v-btn>
               <v-btn color="warning" @click="notif('warning')">warning</v-btn>
-              <v-btn color="info" @click="notif('info')">info</v-btn>
               <v-btn @click="remove()">Remove All</v-btn>
             </v-flex>
 
@@ -76,6 +79,7 @@ export default {
       timer: 5,
       infiniteTimer: false,
       showLeftIcn: true,
+      showCloseIcn: true,
       count: 0,
       buttonClicked: false,
       config: {}
@@ -87,7 +91,8 @@ export default {
         position: this.position,
         timer: this.timer,
         infiniteTimer: this.infiniteTimer,
-        showLeftIcn: this.showLeftIcn
+        showLeftIcn: this.showLeftIcn,
+        showCloseIcn: this.showCloseIcn
       });
     }
   },
@@ -99,7 +104,8 @@ export default {
       this.buttonClicked = true;
 
       this.$notification[type](
-        "Sample of notification throw with number " + this.count,
+        "Lorsque l’expérience de l’utilisateur est supérieure à l’attente de l’utilisateur, la confiance est établie. " +
+          this.count,
         {
           ...config
         }

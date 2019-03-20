@@ -1,7 +1,9 @@
 # Notification Vue JS 🚀
+
 🚧 Development in progress
 
 The **Notification vue** plugin allow you to display notifications from all your app. Just with one ligne of code.
+I know there are lots of others but the peculiarity of this one is to have GSAP to animate your toast of a million way
 
 ## How to use it
 
@@ -31,16 +33,18 @@ this.$notification.error("hello world", { infiniteTimer: false });
 
 ## Parameters
 
-| Name          | Type    |               Default value |
-| ------------- | ------- | --------------------------: |
-| message       | String  | "🚧 You miss something ..." |
-| timer         | Number  |                        5(s) |
-| infiniteTimer | Boolean |                       false |
-| position      | String  |                    topRight |
-| type          | String  |                     primary |
-| [type]        | Object  |        ( See type section ) |
-| showLeftIcn   | Boolean |                        true |
-| showCloseIcn  | Boolean |                       false |
+| Name          | Type     |               Default value |
+| ------------- | -------- | --------------------------: |
+| message       | String   | "🚧 You miss something ..." |
+| timer         | Number   |                        5(s) |
+| infiniteTimer | Boolean  |                       false |
+| position      | String   |                    topRight |
+| type          | String   |                     primary |
+| [type]        | Object   |        ( See type section ) |
+| showLeftIcn   | Boolean  |                        true |
+| showCloseIcn  | Boolean  |                       false |
+| animateIn     | Function |            ()=> TimelineMax |
+| animateOut    | Function |            ()=> TimelineMax |
 
 #### position
 
@@ -58,7 +62,7 @@ this.$notification.error("hello world", { infiniteTimer: false });
 There is 5 notifications types.
 
 - primary
-- info
+- dark
 - success
 - warning
 - error
@@ -75,8 +79,32 @@ Vue.use(NotificationVuejs, {
 });
 ```
 
+#### Animation
+
+To animate the in and out animation, we use **GSAP**. To customize the default animation, you have to add to your config object. animateIn and animateOut with function that return gsap timeline.
+
+```javascript
+Vue.use(NotificationVuejs, {
+  animateIn: function() {
+    var tl = new TimelineMax()
+      .from(this.notificationEl, 0.6, {
+        opacity: 0
+      })
+      .from(this.notificationEl, 0.4, {
+        borderRadius: 100,
+        width: 58,
+        height: 58
+      })
+      .from(this.notificationElContent, 0.3, {
+        opacity: 0
+      });
+    return tl;
+  }
+});
+```
+
 ## Credit
 
-##### Icones
+### Icones
 
 <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>, <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
