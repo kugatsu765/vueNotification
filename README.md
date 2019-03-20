@@ -62,7 +62,7 @@ this.$notification.error("hello world", { infiniteTimer: false });
 There is 5 notifications types.
 
 - primary
-- info
+- dark
 - success
 - warning
 - error

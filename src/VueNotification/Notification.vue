@@ -154,8 +154,9 @@ export default {
       type: Function,
       default: function() {
         var tl = new TimelineMax({})
-          .to(`.notif${this.uuid}>div`, 0.3, {
-            opacity: 0
+          .to(`.notif${this.uuid}>div`, 0.4, {
+            opacity: 0,
+            ease: Power3.easeOut
           })
           .to(`.notif${this.uuid}`, 0.3, {
             borderRadius: 100,
