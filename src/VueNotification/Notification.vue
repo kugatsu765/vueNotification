@@ -261,6 +261,7 @@ export default {
 .notificationCenter {
   position: absolute;
   width: 400px;
+  max-width: 90vw;
   top: 0;
   right: 0;
   z-index: 50;
