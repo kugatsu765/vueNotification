@@ -46,8 +46,8 @@ const NotificationCenter = {
         lConf.message = message;
         return createNotification(lConf);
       },
-      info: function(message, lConf = {}) {
-        lConf.type = "info";
+      dark: function(message, lConf = {}) {
+        lConf.type = "dark";
         lConf.message = message;
         return createNotification(lConf);
       },
