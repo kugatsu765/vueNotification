@@ -20,7 +20,11 @@ Vue.use(NotificationVuejs, {
       })
       .from(this.notificationElContent, 0.3, {
         css: { opacity: 0 }
+      })
+      .to(this.notificationIconeClose, 0.3, {
+        css: { opacity: 0 }
       });
+
     return tl;
   }
 });

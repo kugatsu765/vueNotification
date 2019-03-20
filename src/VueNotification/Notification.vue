@@ -1,12 +1,13 @@
 <template>
   <div
-    class="notification"
-    :class="'notif'+ uuid"
+    class="vn-notification"
+    :class="'vn-notif'+ uuid"
     :style="{backgroundColor: backgroundColor, color: textColor}"
   >
-    <div class="container">
-      <div :class="{'icn-left': showLeftIcn}" :style="{fill: textColor}">
+    <div class="vn-container">
+      <div :class="{'vn-icn-left': showLeftIcn}" :style="{fill: textColor}">
         <svg
+          class="vn-icone"
           width="14"
           height="20"
           viewBox="0 0 14 20"
@@ -21,10 +22,10 @@
 
       <div>
         <p class="vn-title" v-if="title !== null && title !== undefined && title !== ''">{{title}}</p>
-        <p>{{message}}</p>
+        <p class="vn-message">{{message}}</p>
       </div>
 
-      <div @click="remove()" :style="{fill: textColor}" class="closeButton">
+      <div @click="remove()" :style="{fill: textColor}" class="vn-closeButton">
         <svg
           width="10"
           height="10"
@@ -49,8 +50,13 @@ export default {
   name: "Notification",
   data: function() {
     return {
-      notificationEl: `.notif${this.uuid}`,
-      notificationElContent: `.notif${this.uuid}>div`
+      notification: `.vn-notification`,
+      notificationEl: `.vn-notif${this.uuid}`,
+      notificationElContent: `.vn-notif${this.uuid} .vn-container`,
+      notificationTitle: `.vn-notif${this.uuid} .vn-title`,
+      notificationMessage: `.vn-notif${this.uuid} .vn-message`,
+      notificationIcone: `.vn-notif${this.uuid} .vn-icone`,
+      notificationIconeClose: `.vn-notif${this.uuid} .vn-closeButton`
     };
   },
   props: {
@@ -140,7 +146,7 @@ export default {
       type: Function,
       default: function() {
         var tl = new TimelineMax()
-          .from(`.notif${this.uuid}`, 0.6, {
+          .from(`.vn-notif${this.uuid}`, 0.6, {
             opacity: 0
           })
           .from(this.notificationEl, 0.4, {
@@ -148,7 +154,7 @@ export default {
             width: 30,
             height: 30
           })
-          .from(`.notif${this.uuid}>div`, 0.3, {
+          .from(`.vn-notif${this.uuid}>div`, 0.3, {
             opacity: 0
           });
         tl.pause();
@@ -159,16 +165,16 @@ export default {
       type: Function,
       default: function() {
         var tl = new TimelineMax({})
-          .to(`.notif${this.uuid}>div`, 0.4, {
+          .to(`.vn-notif${this.uuid}>div`, 0.4, {
             opacity: 0,
             ease: Power3.easeOut
           })
-          .to(`.notif${this.uuid}`, 0.3, {
+          .to(`.vn-notif${this.uuid}`, 0.3, {
             borderRadius: 100,
             width: 30,
             height: 30
           })
-          .to(`.notif${this.uuid}`, 0.7, {
+          .to(`.vn-notif${this.uuid}`, 0.7, {
             opacity: 0
           });
 
@@ -178,7 +184,7 @@ export default {
   },
   methods: {
     getContainer: function() {
-      // Create the container if they don't exist or return it
+      // Create the vn-container if they don't exist or return it
       let notificationContainer = document.querySelector(`.notificationCenter`);
       if (!notificationContainer) {
         notificationContainer = document.createElement("div");
@@ -286,13 +292,13 @@ export default {
     margin: auto;
   }
 
-  .notification {
+  .vn-notification {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
     overflow: hidden;
     margin: 8px auto;
     border-radius: 5px;
 
-    .container {
+    .vn-container {
       position: relative;
       padding: 16px 24px 16px 16px;
       display: grid;
@@ -309,11 +315,11 @@ export default {
         margin: 0;
       }
 
-      .icn-left {
+      .vn-icn-left {
         margin-right: 16px;
       }
 
-      .closeButton {
+      .vn-closeButton {
         cursor: pointer;
         position: absolute;
         right: 10px;

@@ -1,7 +1,5 @@
 # Notification Vue JS 🚀
 
-🚧 Development in progress
-
 The **Notification vue** plugin allow you to display notifications from all your app. Just with one ligne of code.
 I know there are lots of others but the peculiarity of this one is to have GSAP to animate your toast of a million way
 
@@ -36,6 +34,7 @@ this.$notification.error("hello world", { infiniteTimer: false });
 | Name          | Type     |               Default value |
 | ------------- | -------- | --------------------------: |
 | message       | String   | "🚧 You miss something ..." |
+| title         | String   |                        null |
 | timer         | Number   |                        5(s) |
 | infiniteTimer | Boolean  |                       false |
 | position      | String   |                    topRight |
@@ -102,6 +101,18 @@ Vue.use(NotificationVuejs, {
   }
 });
 ```
+
+You can select the notification with custom selector.
+
+| Selector                        |                Value to use |
+| ------------------------------- | --------------------------: |
+| all notification                |           this.notification |
+| current notification            |         this.notificationEl |
+| all content of the notification |  this.notificationElContent |
+| Notification title              |      this.notificationTitle |
+| Notification message            |    this.notificationMessage |
+| Notification icone              |      this.notificationIcone |
+| Notification close button       | this.notificationIconeClose |
 
 ## Credit
 
