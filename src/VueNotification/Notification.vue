@@ -85,7 +85,10 @@ let uuid = 0;
 export default {
   name: "Notification",
   data: function() {
-    return {};
+    return {
+      notificationEl: `.notif${this.uuid}`,
+      notificationElContent: `.notif${this.uuid}>div`
+    };
   },
   props: {
     message: {
@@ -172,7 +175,7 @@ export default {
           .from(`.notif${this.uuid}`, 0.6, {
             opacity: 0
           })
-          .from(`.notif${this.uuid}`, 0.4, {
+          .from(this.notificationEl, 0.4, {
             borderRadius: 100,
             width: 58,
             height: 58
