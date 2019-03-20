@@ -3,6 +3,9 @@
 The **Notification vue** plugin allow you to display notifications from all your app. Just with one ligne of code.
 I know there are lots of others but the peculiarity of this one is to have GSAP to animate your toast of a million way
 
+![img vue notification](./src/assets/captureMov.gif)
+![img vue notification](./src/assets/capture.png)
+
 ## How to use it
 
 Install with pm
