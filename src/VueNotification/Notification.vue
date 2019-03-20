@@ -84,6 +84,9 @@ import { TimlineMax } from "gsap";
 let uuid = 0;
 export default {
   name: "Notification",
+  data: function() {
+    return {};
+  },
   props: {
     message: {
       type: String,
@@ -161,6 +164,44 @@ export default {
           color: "#000"
         };
       }
+    },
+    animateIn: {
+      type: Function,
+      default: function() {
+        var tl = new TimelineMax()
+          .from(`.notif${this.uuid}`, 0.6, {
+            opacity: 0
+          })
+          .from(`.notif${this.uuid}`, 0.4, {
+            borderRadius: 100,
+            width: 58,
+            height: 58
+          })
+          .from(`.notif${this.uuid}>div`, 0.3, {
+            opacity: 0
+          });
+        tl.pause();
+        return tl;
+      }
+    },
+    animateOut: {
+      type: Function,
+      default: function() {
+        var tl = new TimelineMax({})
+          .to(`.notif${this.uuid}>div`, 0.3, {
+            opacity: 0
+          })
+          .to(`.notif${this.uuid}`, 0.3, {
+            borderRadius: 100,
+            width: 58,
+            height: 58
+          })
+          .to(`.notif${this.uuid}`, 0.7, {
+            opacity: 0
+          });
+
+        return tl;
+      }
     }
   },
   methods: {
@@ -181,22 +222,10 @@ export default {
         onComplete: () => {
           window.clearTimeout(this.timeout);
           this.$notification.remove(this);
-          console.log(this);
           notificationContainer.removeChild(this.$el);
           this.$destroy();
         }
-      })
-        .to(`.notif${this.uuid}>div`, 0.3, {
-          opacity: 0
-        })
-        .to(`.notif${this.uuid}`, 0.3, {
-          borderRadius: 100,
-          width: 30,
-          height: 30
-        })
-        .to(`.notif${this.uuid}`, 0.7, {
-          opacity: 0
-        });
+      }).add(this.animateOut().play(0));
     },
     handleTimeout: function() {
       if (!this.infiniteTimer) {
@@ -208,23 +237,6 @@ export default {
     initColors: function() {
       this.backgroundColor = this[this.type].background;
       this.textColor = this[this.type].color;
-    },
-    animate: function() {
-      var tl = new TimelineMax()
-        .from(`.notif${this.uuid}`, 0.6, {
-          opacity: 0
-        })
-        .from(`.notif${this.uuid}`, 0.4, {
-          borderRadius: 100,
-          width: 30,
-          height: 30
-        })
-        .from(`.notif${this.uuid}>div`, 0.3, {
-          opacity: 0
-        });
-
-      tl.pause();
-      return tl;
     }
   },
   beforeCreate() {
@@ -239,7 +251,7 @@ export default {
   },
   mounted() {
     this.handleTimeout();
-    this.animate().play(0);
+    this.animateIn().play(0);
   },
   beforeDestroy() {}
 };
