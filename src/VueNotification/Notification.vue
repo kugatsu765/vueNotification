@@ -20,6 +20,7 @@
       </div>
 
       <div>
+        <p class="vn-title" v-if="title !== null && title !== undefined && title !== ''">{{title}}</p>
         <p>{{message}}</p>
       </div>
 
@@ -56,6 +57,10 @@ export default {
     message: {
       type: String,
       default: "🚧 You miss something ..."
+    },
+    title: {
+      type: String,
+      default: null
     },
     timer: {
       type: Number,
@@ -226,6 +231,7 @@ export default {
 
 <style lang="scss">
 .notificationCenter {
+  font-family: "avenir", "Courier New", Courier, monospace;
   position: absolute;
   width: 300px;
   max-width: 90vw;
@@ -292,6 +298,12 @@ export default {
       display: grid;
       grid-template-columns: auto 1fr;
       align-items: center;
+
+      .vn-title {
+        font-size: 17px;
+        transform: translateY(-5px);
+        font-weight: 500;
+      }
 
       p {
         margin: 0;

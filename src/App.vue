@@ -19,6 +19,12 @@
       <div id="app">
         <v-container grid-list-md text-xs-center>
           <v-layout row wrap>
+            <v-flex xs12>
+              <v-text-field v-model="title" :counter="80" label="Title" required></v-text-field>
+            </v-flex>
+            <v-flex xs12>
+              <v-text-field v-model="message" :counter="160" label="Message" required></v-text-field>
+            </v-flex>
             <v-flex xs12>Position
               <v-select
                 v-model="position"
@@ -27,10 +33,10 @@
                 :disabled="buttonClicked"
               ></v-select>
             </v-flex>
-            <v-flex xs12>Timer
+            <v-flex xs6>Timer
               <v-slider v-model="timer" thumb-label="always"></v-slider>
             </v-flex>
-            <v-flex xs12>infinteTimer
+            <v-flex xs6>infinteTimer
               <v-checkbox
                 v-model="infiniteTimer"
                 label="Allow you to display a notification whitout timer"
@@ -42,6 +48,7 @@
             <v-flex xs6>showCloseIcn
               <v-checkbox v-model="showCloseIcn" label="Allow you to display hide the close button"></v-checkbox>
             </v-flex>
+
             <v-flex xs12>
               <v-btn color @click="notif('new')">Primary</v-btn>
               <v-btn color="black" style="color: white" @click="notif('dark')">dark</v-btn>
@@ -82,6 +89,9 @@ export default {
       showCloseIcn: true,
       count: 0,
       buttonClicked: false,
+      title: "Vue Notification",
+      message:
+        "Lorsque l’expérience de l’utilisateur est supérieure à l’attente de l’utilisateur, la confiance est établie.",
       config: {}
     };
   },
@@ -92,7 +102,8 @@ export default {
         timer: this.timer,
         infiniteTimer: this.infiniteTimer,
         showLeftIcn: this.showLeftIcn,
-        showCloseIcn: this.showCloseIcn
+        showCloseIcn: this.showCloseIcn,
+        title: this.title
       });
     }
   },
@@ -103,13 +114,9 @@ export default {
       let config = this.getConfig;
       this.buttonClicked = true;
 
-      this.$notification[type](
-        "Lorsque l’expérience de l’utilisateur est supérieure à l’attente de l’utilisateur, la confiance est établie. " +
-          this.count,
-        {
-          ...config
-        }
-      );
+      this.$notification[type](this.message + this.count, {
+        ...config
+      });
     },
     remove: function() {
       this.$notification.removeAll();
