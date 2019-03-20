@@ -226,7 +226,7 @@ export default {
 <style lang="scss">
 .notificationCenter {
   position: absolute;
-  width: 350px;
+  width: 300px;
   max-width: 90vw;
   top: 0;
   right: 0;
@@ -301,7 +301,7 @@ export default {
       .closeButton {
         cursor: pointer;
         position: absolute;
-        right: 8px;
+        right: 10px;
         top: 8px;
       }
     }
