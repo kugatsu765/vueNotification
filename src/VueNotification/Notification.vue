@@ -151,8 +151,8 @@ export default {
           })
           .from(this.notificationEl, 0.4, {
             borderRadius: 100,
-            width: 30,
-            height: 30
+            width: 20,
+            height: 20
           })
           .from(`.vn-notif${this.uuid}>div`, 0.3, {
             opacity: 0
@@ -173,6 +173,12 @@ export default {
             borderRadius: 100,
             width: 30,
             height: 30
+          })
+          .to(`.vn-notif${this.uuid}`, 0.3, {
+            borderRadius: 100,
+            width: 0,
+            height: 0,
+            margin: "0 auto"
           })
           .to(`.vn-notif${this.uuid}`, 0.7, {
             opacity: 0
