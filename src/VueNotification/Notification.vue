@@ -313,6 +313,7 @@ export default {
 
       p {
         margin: 0;
+        font-size: 14px;
       }
 
       .vn-icn-left {
