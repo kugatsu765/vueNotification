@@ -8,10 +8,10 @@ I know there are lots of others but the peculiarity of this one is to have GSAP 
 
 ## How to use it
 
-Install with pm
-
+Install with npm. If you don't already have GSAP in your project. You also have to install it.
 ```console
 npm i @kugatsu/vuenotification --save
+npm i gsap --save
 ```
 
 Import with ES6
