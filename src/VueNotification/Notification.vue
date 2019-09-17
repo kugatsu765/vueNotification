@@ -244,7 +244,7 @@ export default {
 <style lang="scss">
 .notificationCenter {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  position: absolute;
+  position: fixed;
   width: 300px;
   max-width: 90vw;
   top: 0;
