@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { TimlineMax } from "gsap";
+import { TimelineMax, Power3 } from "gsap";
 
 let uuid = 0;
 export default {
