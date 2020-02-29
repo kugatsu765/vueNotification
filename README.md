@@ -1,14 +1,14 @@
 # Notification Vue JS 🚀
 
-The **Notification vue** plugin allow you to display notifications from all your app. Just with one ligne of code.
-I know there are lots of others but the peculiarity of this one is to have GSAP to animate your toast of a million way
+The **Notification vue** plugin allows you to display notifications from anywhere within your app. Just with one line of code.
+This notification plugin is unique from others as it utilises the GSAP library allowing you to animate your notifications in a near limitless number of ways
 
 ![img vue notification](./src/assets/captureMov.gif)
 ![img vue notification](./src/assets/capture.png)
 
 ## How to use it
 
-Install with npm. If you don't already have GSAP in your project. You also have to install it.
+Install with npm. If you don't already have GSAP in your project, you also have to install it.
 ```console
 npm i @kugatsu/vuenotification --save
 npm i gsap --save
@@ -24,7 +24,7 @@ Vue.use(VueNotification, {
 });
 ```
 
-Throw notification where you want.
+Emit the notification where you want.
 
 ```javascript
 this.$notification.new("hello world", {  timer: 10 });
@@ -34,25 +34,25 @@ this.$notification.error("hello world", { infiniteTimer: false });
 
 ## Parameters
 
-| Name          | Type     |               Default value |
-| ------------- | -------- | --------------------------: |
-| message       | String   | "🚧 You miss something ..." |
-| title         | String   |                        null |
-| timer         | Number   |                        5(s) |
-| infiniteTimer | Boolean  |                       false |
-| position      | String   |                    topRight |
-| type          | String   |                     primary |
-| [type]        | Object   |        ( See type section ) |
-| showLeftIcn   | Boolean  |                        true |
-| showCloseIcn  | Boolean  |                       false |
-| animateIn     | Function |            ()=> TimelineMax |
-| animateOut    | Function |            ()=> TimelineMax |
+| Name          | Type     |                 Default value |
+| ------------- | -------- | ----------------------------: |
+| message       | String   | "🚧 You missed something ..." |
+| title         | String   |                          null |
+| timer         | Number   |                          5(s) |
+| infiniteTimer | Boolean  |                         false |
+| position      | String   |                      topRight |
+| type          | String   |                       primary |
+| [type]        | Object   |          ( See type section ) |
+| showLeftIcn   | Boolean  |                          true |
+| showCloseIcn  | Boolean  |                         false |
+| animateIn     | Function |              ()=> TimelineMax |
+| animateOut    | Function |              ()=> TimelineMax |
 
 #### position
 
 | Name          |        Value |
 | ------------- | -----------: |
-| top center    |     topRight |
+| top center    |    topCenter |
 | top left      |      topLeft |
 | top right     |     topRight |
 | bottom center | bottomCenter |
@@ -61,7 +61,7 @@ this.$notification.error("hello world", { infiniteTimer: false });
 
 #### Type
 
-There is 5 notifications types.
+There are 5 notifications types.
 
 - primary
 - dark
@@ -69,10 +69,10 @@ There is 5 notifications types.
 - warning
 - error
 
-To custom the colors of the notification you can do globaly or localy :
+To custom the colors of the notification you can do this globally or locally :
 
 ```javascript
-// Sample to change all error notification
+// Sample to change all error notifications
 Vue.use(NotificationVuejs, {
   error: {
     background: "green",
@@ -83,7 +83,7 @@ Vue.use(NotificationVuejs, {
 
 #### Animation
 
-To animate the in and out animation, we use **GSAP**. To customize the default animation, you have to add to your config object. animateIn and animateOut with function that return gsap timeline.
+To animate the in and out animation, we use **GSAP**. To customize the default animation, you have to add to your config object. animateIn and animateOut with a function that returns a gsap timeline.
 
 ```javascript
 Vue.use(NotificationVuejs, {
@@ -105,7 +105,7 @@ Vue.use(NotificationVuejs, {
 });
 ```
 
-You can select the notification with custom selector.
+You can select the notification with a custom selector.
 
 | Selector                        |                Value to use |
 | ------------------------------- | --------------------------: |
