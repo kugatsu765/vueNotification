@@ -25,7 +25,8 @@
             <v-flex xs12>
               <v-text-field v-model="message" :counter="160" label="Message" required></v-text-field>
             </v-flex>
-            <v-flex xs12>Position
+            <v-flex xs12>
+              Position
               <v-select
                 v-model="position"
                 :items="positions"
@@ -33,20 +34,28 @@
                 :disabled="buttonClicked"
               ></v-select>
             </v-flex>
-            <v-flex xs6>Timer
+            <v-flex xs6>
+              Timer
               <v-slider v-model="timer" thumb-label="always"></v-slider>
             </v-flex>
-            <v-flex xs6>infinteTimer
+            <v-flex xs6>
+              infinteTimer
               <v-checkbox
                 v-model="infiniteTimer"
                 label="Allow you to display a notification whitout timer"
               ></v-checkbox>
             </v-flex>
-            <v-flex xs6>showLeftIcn
+            <v-flex xs6>
+              showLeftIcn
               <v-checkbox v-model="showLeftIcn" label="Allow you to display hide the left icone"></v-checkbox>
             </v-flex>
-            <v-flex xs6>showCloseIcn
+            <v-flex xs6>
+              showCloseIcn
               <v-checkbox v-model="showCloseIcn" label="Allow you to display hide the close button"></v-checkbox>
+            </v-flex>
+            <v-flex xs6>
+              messageIsHTML
+              <v-checkbox v-model="isHtml" label="Allow you to write message with html"></v-checkbox>
             </v-flex>
 
             <v-flex xs12>
@@ -87,6 +96,7 @@ export default {
       infiniteTimer: false,
       showLeftIcn: true,
       showCloseIcn: true,
+      isHtml: false,
       count: 0,
       buttonClicked: false,
       title: "Vue Notification",
@@ -103,7 +113,8 @@ export default {
         infiniteTimer: this.infiniteTimer,
         showLeftIcn: this.showLeftIcn,
         showCloseIcn: this.showCloseIcn,
-        title: this.title
+        title: this.title,
+        messageIsHTML: this.isHtml
       });
     }
   },
