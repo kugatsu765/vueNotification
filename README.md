@@ -1,5 +1,7 @@
 # Notification Vue JS 🚀
 
+> 🚨🚨🚨 Not maintained anymore
+
 The **Notification vue** plugin allows you to display notifications from anywhere within your app. Just with one line of code.
 This notification plugin is unique from others as it utilises the GSAP library allowing you to animate your notifications in a near limitless number of ways
 
