@@ -47,6 +47,7 @@ this.$notification.error("hello world", { infiniteTimer: false });
 | showCloseIcn  | Boolean  |                         false |
 | animateIn     | Function |              ()=> TimelineMax |
 | animateOut    | Function |              ()=> TimelineMax |
+| messageIsHTML | Boolean  |                         false |
 
 #### position
 
